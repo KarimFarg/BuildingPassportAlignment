@@ -1,0 +1,111 @@
+@prefix : <http://acer.com/> .
+@prefix acer: <http://acer.com#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+acer:appliesTo a owl:ObjectProperty ;
+    rdfs:label "applies to" ;
+    rdfs:domain acer:Requirement ;
+    rdfs:range acer:BuildingStatus,
+        acer:BuildingTypology .
+
+acer:contains a owl:ObjectProperty ;
+    rdfs:label "contains" ;
+    rdfs:domain acer:InformationContainer ;
+    rdfs:range acer:Datapoint .
+
+acer:defines a owl:ObjectProperty ;
+    rdfs:label "defines" ;
+    rdfs:domain <http://acer.com# ImplicitlyHiddenRule> ;
+    rdfs:range acer:Datapoint .
+
+acer:has a owl:ObjectProperty ;
+    rdfs:label "has" ;
+    rdfs:range acer:Classification .
+
+acer:hasType a owl:ObjectProperty ;
+    rdfs:label "has type" ;
+    rdfs:domain <http://acer.com# ImplicitlyHiddenRule> ;
+    rdfs:range acer:RequirementType .
+
+acer:referencedIn a owl:ObjectProperty ;
+    rdfs:label "referenced in" ;
+    rdfs:domain acer:Source ;
+    rdfs:range acer:Source .
+
+acer:relatedTo a owl:ObjectProperty ;
+    rdfs:label "related to" ;
+    rdfs:domain acer:Requirement ;
+    rdfs:range acer:Requirement .
+
+acer:requiredFor a owl:ObjectProperty ;
+    rdfs:label "required for" ;
+    rdfs:domain acer:Datapoint ;
+    rdfs:range acer:Asset .
+
+acer:specifies a owl:ObjectProperty ;
+    rdfs:label "specifies" ;
+    rdfs:domain acer:Requirement,
+        acer:Source ;
+    rdfs:range acer:Requirement,
+        <http://acer.com# ImplicitlyHiddenRule> .
+
+: a owl:Ontology ;
+    dc:creator "Karim Farghaly" ;
+    dc:title "acer Ontology" ;
+    owl:versionInfo "0.0.1" ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+:acer a owl:DatatypeProperty ;
+    rdfs:label "acer" ;
+    rdfs:domain acer:Classification,
+        acer:Datapoint,
+        acer:InformationContainer,
+        acer:Requirement,
+        acer:Source,
+        <http://acer.com# ImplicitlyHiddenRule> .
+
+dc:creator a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+owl:sameAs a owl:ObjectProperty ;
+    rdfs:label "same as" ;
+    rdfs:domain acer:Datapoint ;
+    rdfs:range acer:Datapoint .
+
+owl:versionInfo a owl:AnnotationProperty .
+
+acer:Asset a owl:Class ;
+    rdfs:label "Asset" .
+
+acer:BuildingStatus a owl:Class ;
+    rdfs:label "Building Status" .
+
+acer:BuildingTypology a owl:Class ;
+    rdfs:label "Building Typology" .
+
+acer:RequirementType a owl:Class ;
+    rdfs:label "Requirement Type" .
+
+acer:Classification a owl:Class ;
+    rdfs:label "Classification" .
+
+acer:InformationContainer a owl:Class ;
+    rdfs:label "Information Container" .
+
+acer:Source a owl:Class ;
+    rdfs:label "Source" .
+
+<http://acer.com# ImplicitlyHiddenRule> a owl:Class ;
+    rdfs:label "  Implicitly Hidden Rule" ;
+    rdfs:subClassOf acer:Requirement .
+
+acer:Datapoint a owl:Class ;
+    rdfs:label "Datapoint" .
+
+acer:Requirement a owl:Class ;
+    rdfs:label "Requirement" .
+
